@@ -19,8 +19,6 @@ class CategoryUpdateControllerV1 extends Controller
         return (new CategoryResource($category))
                 ->additional(['meta' => [
                     'message' => 'Updated category',
-                ]])
-                ->response()
-                ->setStatusCode(202);
+                ]]);
     }
 }
