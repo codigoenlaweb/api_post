@@ -1,11 +1,6 @@
 <?php
 
-use App\Http\Controllers\api\v1\category\CategoryDeleteControllerV1;
-use App\Http\Controllers\api\v1\category\CategoryIndexControllerV1;
-use App\Http\Controllers\api\v1\category\CategoryShowControllerV1;
-use App\Http\Controllers\api\v1\category\CategoryStoreControllerV1;
-use App\Http\Controllers\api\v1\category\CategoryUpdateControllerV1;
-use App\Http\Controllers\api\v1\CategoryControllerV1;
+use App\Actions\JsonApiAuth\AuthKit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,15 +15,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+require __DIR__ . '/json-api-auth.php';
 
-Route::get('/v1/category', [CategoryIndexControllerV1::class, 'index'])->name('categoryv1.index');
-Route::get('/v1/category/{category}', [CategoryShowControllerV1::class, 'show'])->name('categoryv1.show');
-Route::post('/v1/category', [CategoryStoreControllerV1::class, 'store'])->name('categoryv1.store');
-Route::delete('/v1/category/{category}', [CategoryDeleteControllerV1::class, 'destroy'])->name('category.destroy');
-Route::put('/v1/category/{category}', [CategoryUpdateControllerV1::class, 'update'])->name('category.update');
+/*
+|--------------------------------------------------------------------------
+| An example of how to use the verified email feature with api endpoints
+|--------------------------------------------------------------------------
+|
+| Here examples of a route using Sanctum middleware and verified middleware.
+| And another route using Passport middleware and verified middleware.
+| You can install and use one of this official packages.
+|
+*/
 
+//Route::get('/verified-middleware-example', function () {
+//    return response()->json([
+//        'message' => 'the email account is already confirmed now you are able to see this message...',
+//    ]);
+//})->middleware('auth:sanctum', 'verified');
 
+//Route::get('/verified-middleware-example', function () {
+//    return response()->json([
+//        'message' => 'the email account is already confirmed now you are able to see this message...',
+//    ]);
+//})->middleware('auth:api', 'verified');
