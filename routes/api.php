@@ -15,9 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::middleware('auth:sanctum', 'verified')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+require __DIR__ . '/category.php';
 
 require __DIR__ . '/json-api-auth.php';
 
@@ -32,14 +39,14 @@ require __DIR__ . '/json-api-auth.php';
 |
 */
 
-//Route::get('/verified-middleware-example', function () {
+// Route::get('/verified-middleware-example', function () {
 //    return response()->json([
 //        'message' => 'the email account is already confirmed now you are able to see this message...',
 //    ]);
-//})->middleware('auth:sanctum', 'verified');
+// })->middleware('auth:sanctum', 'verified');
 
-//Route::get('/verified-middleware-example', function () {
+// Route::get('/verified-middleware-example', function () {
 //    return response()->json([
 //        'message' => 'the email account is already confirmed now you are able to see this message...',
 //    ]);
-//})->middleware('auth:api', 'verified');
+// })->middleware('auth:api', 'verified');
