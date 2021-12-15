@@ -19,12 +19,12 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::middleware('auth:sanctum', 'verified')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
+require __DIR__ . '/user.php';
 
 require __DIR__ . '/category.php';
+
+require __DIR__ . '/post.php';
 
 require __DIR__ . '/json-api-auth.php';
 
