@@ -31,4 +31,3 @@ Route::post('/v1/category', [CategoryStoreControllerV1::class, 'store'])->name('
 Route::delete('/v1/category/{category}', [CategoryDeleteControllerV1::class, 'destroy'])->name('category.destroy');
 Route::put('/v1/category/{category}', [CategoryUpdateControllerV1::class, 'update'])->name('category.update');
 
-
