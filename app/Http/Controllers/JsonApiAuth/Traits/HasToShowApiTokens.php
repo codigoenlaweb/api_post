@@ -14,6 +14,7 @@ trait HasToShowApiTokens
         $response = [
             'message' => __('json-api-auth.success'),
             'user' => $user,
+            'res' => true
         ];
 
         if($showToken) {

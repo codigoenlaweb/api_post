@@ -23,7 +23,7 @@ class LoginController
         } catch (Exception $exception) {
 
             return response()->json([
-                'message' => $exception->getMessage()
+                'message' => $exception->getMessage(),
             ], 400);
 
         }

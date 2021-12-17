@@ -15,6 +15,7 @@ class LogoutController
 
         return response([
             'message' => __('json-api-auth.logout'),
+            'res' => true
         ], 200);
     }
 
