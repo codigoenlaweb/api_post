@@ -12,9 +12,6 @@ class CategoryStoreControllerV1 extends Controller
 {
     public function store(CategoryRequest $request)
     {
-        return (new CategoryResource(Category::create($request->all())))
-                ->additional(['meta' => [
-                    'message' => 'Category created',
-                ]]);
+        return Category::create($request->all());
     }
 }
