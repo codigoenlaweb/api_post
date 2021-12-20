@@ -4,7 +4,7 @@ namespace App\Http\Controllers\api\v1\category;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\v1\CategoryRequest;
-use App\Http\Resources\v1\Category\CategoryResource;
+use App\Http\Resources\v1\category\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
